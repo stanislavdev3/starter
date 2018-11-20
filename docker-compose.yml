@@ -1,0 +1,48 @@
+version: '3'
+services:
+
+  nginx:
+    image: nginx:1.15
+    restart: always
+    volumes:
+      - ./etc/nginx.conf:/etc/nginx.conf
+      - statics:/static
+    ports:
+      - 80:80
+
+  core:
+    build: .
+#    TODO: integrate image here.
+    image:
+    restart: always
+#    TODO: add uwsgi or gunicorn runner.
+    command:
+    env_file:
+      - .denv
+    networks:
+      - local
+    volumes:
+      - statics:/core/static
+    depends_on:
+      - postgres-db
+      - nginx
+
+  postgres-db:
+    image: postgres:11.1
+    restart: always
+    env_file:
+      - .denv
+    networks:
+      - local
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # TODO: this need mount postgres.conf file
+    ports:
+      - 127.0.0.1:5432:5432
+
+networks:
+  local:
+
+volumes:
+  pgdata:
+  statics:
