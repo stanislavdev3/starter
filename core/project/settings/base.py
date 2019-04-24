@@ -23,13 +23,16 @@ SECRET_KEY = env('SECRET_KEY', default='y$o97r*90ixip94186+%_7&2o018hlyvd8n3hzec
 
 # ======================= APPLICATIONS =======================================
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'applications.app.CustomAdminConfig',
+
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.postgres',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'applications.core',
 ]
 
 # ======================= MIDDLEWARE =========================================
@@ -71,7 +74,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('POSTGRES_DB', default='market'),
+        'NAME': env('POSTGRES_DB', default='starter'),
         'USER': env('POSTGRES_USER', default='root'),
         'PASSWORD': env('POSTGRES_PASSWORD', default='root'),
         'HOST': env('POSTGRES_HOST', default='127.0.0.1'),

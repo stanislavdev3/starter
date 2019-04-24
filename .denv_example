@@ -1,0 +1,12 @@
+TZ=Asia/Almaty
+
+POSTGRES_PASSWORD=root
+POSTGRES_USER=root
+POSTGRES_DB=starter
+POSTGRES_HOST=postgres-db
+POSTGRES_PORT=5432
+
+DEBUG=on
+APP_INSTANCE=dev
+# your-secret-key for example "echo 'your-secret-key' | md5sum"
+SECRET_KEY=your-secret-key
