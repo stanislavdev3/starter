@@ -7,8 +7,8 @@
 
 В проекте используется наиболее удобный и стабильный стек технологий:
 
-* [Python] - 3.6
-* [Django] - 2.2
+* [Python] - 3.7
+* [Django] - 3.0.4
 * [PostgreSQL] - 11.1
 * [nginx] - 1.15
 * [docker-compose] - v3
@@ -16,7 +16,10 @@
 ### Развёртывание приложения
 
 * Создаём виртуальное окружение:
-`mkvirtualenv -p python3.6 starter`
+`mkvirtualenv -p python3.7 starter`
+
+* Устанавливаем зависимости:
+`pip freeze > core/requirments.txt `
 
 * По примеру `.env_example` и `.denv_example` формируем файлы с переменными окружения.
 
